@@ -53,6 +53,14 @@ class Computer
     {
         return $this->price;
     }
+};
+class Desktop extends Computer
+{
+    public function getType()
+    {
+        return "Desktop";
+    }
 }
+
 
 ?>
