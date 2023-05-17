@@ -62,5 +62,19 @@ class Desktop extends Computer
     }
 }
 
+class Laptop extends Computer
+{
+    public function getType()
+    {
+        return "Laptop";
+    }
+}
+
+// dates
+$computers = [
+    new Desktop("HP", "Desktop 123", 999.99),
+    new Laptop("Apple", "Macbook Pro 14", 1499.99),
+    new Laptop("Lenovo", "Laptop", 1299.99)
+];
 
 ?>
