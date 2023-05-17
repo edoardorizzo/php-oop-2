@@ -77,4 +77,17 @@ $computers = [
     new Laptop("Lenovo", "Laptop", 1299.99)
 ];
 
+
+// print on screen
+foreach ($computers as $computer) {
+    echo '<div class="card col-4 m-auto mb-4 mt-4">';
+    echo '<div class="card-body">';
+    echo '<h5 class="card-title">' . $computer->getType() . '</h5>';
+    echo '<p class="card-text">Brand: ' . $computer->getBrand() . '</p>';
+    echo '<p class="card-text">Model: ' . $computer->getModel() . '</p>';
+    echo '<p class="card-text">Price: $' . $computer->getPrice() . '</p>';
+    echo '</div>';
+    echo '</div>';
+    
+};
 ?>
