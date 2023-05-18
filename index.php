@@ -20,6 +20,12 @@ Nella card, indichiamo anche che tipo di prodotto stiamo visualizzando (desktop,
 
 */
 
+trait DiscountTrait {
+    public function applyDiscount($percentage) {
+        $discountedPrice = $this->getPrice() * (1 - $percentage / 100);
+        return number_format($discountedPrice, 2);
+    }
+}
 class Computer
 {
 
@@ -64,11 +70,15 @@ class Desktop extends Computer
 
 class Laptop extends Computer
 {
+    use DiscountTrait;
+
     public function getType()
     {
         return "Laptop";
     }
 }
+
+
 
 // dates
 $computers = [
@@ -86,8 +96,16 @@ foreach ($computers as $computer) {
     echo '<p class="card-text">Brand: ' . $computer->getBrand() . '</p>';
     echo '<p class="card-text">Model: ' . $computer->getModel() . '</p>';
     echo '<p class="card-text">Price: $' . $computer->getPrice() . '</p>';
+
+
+    // ad discount only to laptop
+    if ($computer instanceof Laptop) {
+        $discountedPrice = $computer->applyDiscount(10);
+        echo '<p class="card-text">Discounted Price: $' . $discountedPrice . '</p>';
+    }
+
     echo '</div>';
     echo '</div>';
-    
-};
+}
+
 ?>
